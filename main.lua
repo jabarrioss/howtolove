@@ -1,23 +1,15 @@
 function love.load()
-    tick = require("lib.rxi.tick")
-
-    --Create a boolean
-    drawRectangle = false
-
-    --The first argument is a function
-    --The second argument is the time it takes to call the function
-
-    tick.delay(function() drawRectangle = true end, 2)
-end
-
-function love.update(dt)
-    tick.update(dt)
+    x = 30
+    y = 50
 end
 
 function love.draw()
-    --if drawRectangle is true then draw a rectangle
+    love.graphics.rectangle("line", x, y, 100, 100)
+end
 
-    if drawRectangle then
-        love.graphics.rectangle("fill", 100, 100, 300, 200)
+function love.keypressed(key)
+    if key == "space" then
+        x = math.random(100, 500)
+        y = math.random(100, 500)
     end
 end
